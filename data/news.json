@@ -1,0 +1,59 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "II Szachowe Mistrzostwa Radiobudy",
+      "date": "2026-04-24",
+      "category": "Sukcesy",
+      "excerpt": "Mamy nowego mistrza! W dniu 23 kwietnia 2026 roku odbyly sie II Szachowe Mistrzostwa Radiobudy. Zawodnicy rywalizowali w napieciu - gratulujemy zwyciezcy!",
+      "content": "Mamy nowego mistrza! W dniu 23 kwietnia 2026 roku odbyly sie II Szachowe Mistrzostwa Radiobudy. Zawodnicy rywalizowali w napieciu przez wiele godzin. Turniej zgromadzil wielu pasjonatow szachow z calej szkoly. Gratulujemy zwyciezcy i wszystkim uczestnikom za swietna gre!",
+      "image": "assets/news1.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Mateusz Goralski wygrywa Eliminacje Turnieju Pozarniczego",
+      "date": "2026-04-23",
+      "category": "Sukcesy",
+      "excerpt": "23 kwietnia w Komendzie Powiatowej Strazy Pozarnej odbyly sie Powiatowe Eliminacje Ogolnopolskiego Turnieju Wiedzy Pozarniczej. Nasz uczen zajal pierwsze miejsce!",
+      "content": "23 kwietnia w Komendzie Powiatowej Strazy Pozarnej w Dzierzoniowie odbyly sie Powiatowe Eliminacje Ogolnopolskiego Turnieju Wiedzy Pozarniczej. Mateusz Goralski, uczen ZS Nr 1, zajal pierwsze miejsce i awansowal do etapu wyzszego. Gratulujemy sukcesu!",
+      "image": "assets/news2.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Turniej Gier Logicznych - Rummikub",
+      "date": "2026-04-22",
+      "category": "Wydarzenie",
+      "excerpt": "Za nami Miedzynarodowy Turniej Gier Logicznych Rummikub Standard organizowany przez Zespol Szkol Nr 1 w Dzierzoniowie. Swietna zabawa i rywalizacja!",
+      "content": "Za nami Miedzynarodowy Turniej Gier Logicznych Rummikub Standard, organizowany przez Zespol Szkol Nr 1 w Dzierzoniowie. W turnieju wzielo udzial wiele druzyn z okolicznych szkol. Zawodnicy wykazali sie nie tylko refleksem, ale i strategicznym mysleniem.",
+      "image": "assets/news3.jpg"
+    },
+    {
+      "id": 4,
+      "title": "Zawody CrossFit",
+      "date": "2026-04-21",
+      "category": "Sport",
+      "excerpt": "Druzyna Radiobudy w skladzie: Szymon Rapala, Michal Mazik, Marcin Holda, Marek Szalina zawalczyla w zawodach CrossFit. Swietny wynik!",
+      "content": "Druzyna Radiobudy w skladzie: Szymon Rapala, Michal Mazik, Marcin Holda i Marek Szalina wziela udzial w zawodach CrossFit. Uczniowie zaprezentowali swietna forme fizyczna i determinacje. Gratulujemy wszystkim zawodnikom!",
+      "image": "assets/news4.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Konkurs wiedzy o Sejmie Rzeczypospolitej",
+      "date": "2026-04-21",
+      "category": "Edukacja",
+      "excerpt": "21 kwietnia uczniowie reprezentowali Radiobude w konkursie wiedzy obywatelskiej o Sejmie RP. Wykazali sie doskonala znajomoscia instytucji demokratycznych.",
+      "content": "21 kwietnia 2026 r. w Zespole Szkol i Placowek Ksztalcenia Zawodowego w Bielawie odbyl sie Konkurs wiedzy o Sejmie Rzeczypospolitej. Nasi uczniowie reprezentowali szkole z godnoscia, wykazujac sie doskonala znajomoscia instytucji demokratycznych.",
+      "image": "assets/news5.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Etap rejonowy Mistrzostw Pierwszej Pomocy PCK",
+      "date": "2026-04-20",
+      "category": "Sukcesy",
+      "excerpt": "Nasi uczniowie wzieli udzial w etapie rejonowym XXXII Mistrzostw Pierwszej Pomocy PCK w Dzierzoniowie. Wyjatkowe doswiadczenie i cenna praktyka.",
+      "content": "Dzis nasi uczniowie mieli okazje uczestniczyc w wyjatkowym wydarzeniu - etapie rejonowym XXXII Mistrzostw Pierwszej Pomocy PCK w Dzierzoniowie. Uczniowie musieli wykazac sie praktyczna wiedza z zakresu pierwszej pomocy. To cenne doswiadczenie rozwijajace kompetencje ratownicze.",
+      "image": "assets/news6.jpg"
+    }
+  ],
+  "categories": ["Wszystkie", "Sukcesy", "Sport", "Edukacja", "Wydarzenie"]
+}

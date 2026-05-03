@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel Administracyjny – Radiobuda</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',sans-serif;background:#0c0c0e;color:#e8e6e0;min-height:100vh}
+a{color:#4a9eff;text-decoration:none}
+.admin-nav{background:#111115;border-bottom:1px solid rgba(255,255,255,.08);padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.admin-nav-logo{font-weight:700;color:#fff;font-size:1rem}
+.admin-nav-logo em{color:#4a9eff;font-style:normal}
+.admin-nav-links{display:flex;gap:16px;align-items:center}
+.admin-nav-links a{font-size:.85rem;color:#7a7872}
+.admin-nav-links a:hover{color:#fff}
+
+/* Login */
+#login-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:32px}
+.login-box{background:#111115;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:40px;width:360px;text-align:center}
+.login-box h1{font-size:1.4rem;margin-bottom:8px;color:#fff}
+.login-box p{font-size:.85rem;color:#7a7872;margin-bottom:28px}
+.form-group{text-align:left;margin-bottom:16px}
+.form-group label{font-size:.8rem;font-weight:500;color:#9a978f;display:block;margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.form-group input,.form-group textarea,.form-group select{width:100%;padding:10px 14px;background:#0c0c0e;border:1px solid rgba(255,255,255,.1);border-radius:6px;color:#e8e6e0;font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .2s}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{outline:none;border-color:#4a9eff}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-login{width:100%;padding:12px;background:#4a9eff;color:#fff;border:none;border-radius:6px;font-weight:600;font-size:.9rem;cursor:pointer;transition:background .2s}
+.btn-login:hover{background:#2563eb}
+.login-error{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.2);color:#fca5a5;padding:10px;border-radius:6px;font-size:.85rem;margin-bottom:16px;display:none}
+
+/* Admin panel */
+#admin-panel{display:none;min-height:100vh}
+.admin-body{display:grid;grid-template-columns:240px 1fr;min-height:calc(100vh - 56px)}
+.sidebar{background:#111115;border-right:1px solid rgba(255,255,255,.08);padding:24px 0}
+.sidebar-item{display:block;padding:12px 24px;font-size:.88rem;color:#7a7872;cursor:pointer;transition:all .2s;border-left:2px solid transparent}
+.sidebar-item:hover{color:#e8e6e0;background:rgba(255,255,255,.04)}
+.sidebar-item.active{color:#4a9eff;border-left-color:#4a9eff;background:rgba(74,158,255,.06)}
+.admin-main{padding:40px}
+.admin-section{display:none}
+.admin-section.visible{display:block}
+.admin-section h2{font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:24px}
+
+/* Articles table */
+.articles-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}
+.btn-add{padding:10px 20px;background:#4a9eff;color:#fff;border:none;border-radius:6px;font-size:.85rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-add:hover{background:#2563eb}
+.articles-table{width:100%;border-collapse:collapse}
+.articles-table th{text-align:left;padding:12px 16px;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;color:#7a7872;border-bottom:1px solid rgba(255,255,255,.08)}
+.articles-table td{padding:16px;font-size:.88rem;color:#9a978f;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
+.articles-table tr:hover td{background:rgba(255,255,255,.02)}
+.article-title-cell{color:#e8e6e0;font-weight:500;max-width:300px}
+.cat-badge{display:inline-block;padding:2px 10px;border-radius:20px;font-size:.72rem;font-weight:600;background:rgba(74,158,255,.1);border:1px solid rgba(74,158,255,.2);color:#4a9eff}
+.btn-edit{padding:6px 12px;background:none;border:1px solid rgba(255,255,255,.12);color:#9a978f;border-radius:4px;font-size:.78rem;cursor:pointer;transition:all .2s;margin-right:6px}
+.btn-edit:hover{border-color:#4a9eff;color:#4a9eff}
+.btn-delete{padding:6px 12px;background:none;border:1px solid rgba(239,68,68,.2);color:#f87171;border-radius:4px;font-size:.78rem;cursor:pointer;transition:all .2s}
+.btn-delete:hover{background:rgba(239,68,68,.1)}
+
+/* Modal */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);z-index:999;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:#111115;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:32px;width:580px;max-height:90vh;overflow-y:auto}
+.modal h3{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:24px}
+.modal-actions{display:flex;gap:12px;justify-content:flex-end;margin-top:24px}
+.btn-cancel{padding:10px 20px;background:none;border:1px solid rgba(255,255,255,.12);color:#9a978f;border-radius:6px;font-size:.88rem;cursor:pointer;transition:all .2s}
+.btn-cancel:hover{border-color:rgba(255,255,255,.25);color:#e8e6e0}
+.btn-save{padding:10px 24px;background:#4a9eff;color:#fff;border:none;border-radius:6px;font-size:.88rem;font-weight:600;cursor:pointer;transition:background .2s}
+.btn-save:hover{background:#2563eb}
+
+/* Download panel */
+.download-box{background:#16161a;border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:28px;margin-bottom:16px}
+.download-box h4{font-size:.95rem;font-weight:600;color:#e8e6e0;margin-bottom:8px}
+.download-box p{font-size:.85rem;color:#7a7872;margin-bottom:16px}
+.toast{position:fixed;bottom:24px;right:24px;background:#4a9eff;color:#fff;padding:12px 24px;border-radius:8px;font-size:.9rem;transform:translateY(80px);opacity:0;transition:all .3s;z-index:9999}
+.toast.show{transform:translateY(0);opacity:1}
+</style>
+</head>
+<body>
+
+<!-- Login -->
+<div id="login-screen">
+  <div class="login-box">
+    <h1>Panel Administracyjny</h1>
+    <p>Zaloguj się, aby zarządzać stroną Radiobudy</p>
+    <div class="login-error" id="login-error">Nieprawidłowe hasło. Spróbuj ponownie.</div>
+    <div class="form-group">
+      <label>Nazwa użytkownika</label>
+      <input type="text" id="username-input" placeholder="Wprowadź nazwę użytkownika..." autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>Hasło</label>
+      <input type="password" id="password-input" placeholder="Wprowadź hasło..." autocomplete="current-password">
+    </div>
+    <button class="btn-login" onclick="login()">Zaloguj się</button>
+  </div>
+  <a href="index.html" style="font-size:.85rem;color:#7a7872">← Wróć na stronę główną</a>
+</div>
+
+<!-- Admin Panel -->
+<div id="admin-panel">
+  <nav class="admin-nav">
+    <div class="admin-nav-logo">Radiobuda <em>Admin</em></div>
+    <div class="admin-nav-links">
+      <a href="index.html" target="_blank">Podgląd strony →</a>
+      <a href="#" onclick="logout()" style="color:#f87171">Wyloguj</a>
+    </div>
+  </nav>
+  <div class="admin-body">
+    <div class="sidebar">
+      <div class="sidebar-item active" onclick="showSection('articles')">📰 Aktualności</div>
+    </div>
+    <div class="admin-main">
+
+      <!-- ARTICLES -->
+      <div class="admin-section visible" id="section-articles">
+        <div class="articles-header">
+          <h2>Aktualności</h2>
+          <button class="btn-add" onclick="openModal()">+ Dodaj artykuł</button>
+        </div>
+        <table class="articles-table">
+          <thead>
+            <tr>
+              <th>Tytuł</th>
+              <th>Data</th>
+              <th>Kategoria</th>
+              <th>Akcje</th>
+            </tr>
+          </thead>
+          <tbody id="articles-tbody"></tbody>
+        </table>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Article Modal -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3 id="modal-title">Nowy artykuł</h3>
+    <input type="hidden" id="edit-id">
+    <div class="form-group">
+      <label>Tytuł *</label>
+      <input type="text" id="form-title" placeholder="Tytuł artykułu...">
+    </div>
+    <div class="form-group">
+      <label>Data *</label>
+      <input type="date" id="form-date">
+    </div>
+    <div class="form-group">
+      <label>Kategoria *</label>
+      <select id="form-category">
+        <option>Sukcesy</option>
+        <option>Sport</option>
+        <option>Edukacja</option>
+        <option>Wydarzenie</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Skrót (krótki opis)</label>
+      <textarea id="form-excerpt" rows="3" placeholder="Krótki opis artykułu (wyświetlany na liście)..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Treść artykułu</label>
+      <textarea id="form-content" rows="6" placeholder="Pełna treść artykułu..."></textarea>
+    </div>
+    <div class="form-group">
+      <label>Ścieżka do zdjęcia</label>
+      <input type="text" id="form-image" placeholder="np. assets/news7.jpg">
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeModal()">Anuluj</button>
+      <button class="btn-save" onclick="saveArticle()">Zapisz artykuł</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let articles = [];
+
+window.onload = async () => {
+  try {
+    const r = await fetch('api/check_session.php');
+    const res = await r.json();
+    if(res.logged_in) {
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('admin-panel').style.display='block';
+      loadArticles();
+    }
+  } catch(e) {}
+};
+
+async function login(){
+  const user = document.getElementById('username-input').value;
+  const pass = document.getElementById('password-input').value;
+  try {
+    const r = await fetch('api/login.php', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({username: user, password: pass})
+    });
+    const res = await r.json();
+    if(res.success){
+      document.getElementById('login-screen').style.display='none';
+      document.getElementById('admin-panel').style.display='block';
+      loadArticles();
+    } else {
+      const err = document.getElementById('login-error');
+      err.textContent = res.message || 'Błąd logowania';
+      err.style.display='block';
+    }
+  } catch(e) {
+    const err = document.getElementById('login-error');
+    err.textContent = 'Błąd połączenia z serwerem';
+    err.style.display='block';
+  }
+}
+
+document.getElementById('password-input').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+document.getElementById('username-input').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+
+async function logout(){
+  await fetch('api/logout.php');
+  document.getElementById('admin-panel').style.display='none';
+  document.getElementById('login-screen').style.display='flex';
+  document.getElementById('password-input').value='';
+  document.getElementById('username-input').value='';
+}
+
+function showSection(name){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('visible'));
+  document.querySelectorAll('.sidebar-item').forEach(s=>s.classList.remove('active'));
+  document.getElementById('section-'+name).classList.add('visible');
+  event.target.classList.add('active');
+}
+
+async function loadArticles(){
+  try{
+    const r = await fetch('api/get_news.php');
+    const data = await r.json();
+    articles = data.articles || [];
+  } catch(e){ articles=[]; }
+  renderTable();
+}
+
+function renderTable(){
+  const tbody = document.getElementById('articles-tbody');
+  tbody.innerHTML = articles.map(a=>`
+    <tr>
+      <td class="article-title-cell">${a.title}</td>
+      <td>${a.date}</td>
+      <td><span class="cat-badge">${a.category}</span></td>
+      <td>
+        <button class="btn-edit" onclick="editArticle(${a.id})">Edytuj</button>
+        <button class="btn-delete" onclick="deleteArticle(${a.id})">Usuń</button>
+      </td>
+    </tr>`).join('');
+}
+
+function openModal(id=null){
+  document.getElementById('modal-title').textContent = id ? 'Edytuj artykuł' : 'Nowy artykuł';
+  document.getElementById('edit-id').value = id||'';
+  if(id){
+    const a = articles.find(x=>x.id==id); // allow type coercion
+    document.getElementById('form-title').value=a.title;
+    document.getElementById('form-date').value=a.date;
+    document.getElementById('form-category').value=a.category;
+    document.getElementById('form-excerpt').value=a.excerpt;
+    document.getElementById('form-content').value=a.content;
+    document.getElementById('form-image').value=a.image;
+  } else {
+    document.getElementById('form-title').value='';
+    document.getElementById('form-date').value=new Date().toISOString().split('T')[0];
+    document.getElementById('form-category').value='Wydarzenie';
+    document.getElementById('form-excerpt').value='';
+    document.getElementById('form-content').value='';
+    document.getElementById('form-image').value='';
+  }
+  document.getElementById('modal').classList.add('open');
+}
+function closeModal(){ document.getElementById('modal').classList.remove('open'); }
+function editArticle(id){ openModal(id); }
+
+async function saveArticle(){
+  const id = document.getElementById('edit-id').value;
+  const article = {
+    title: document.getElementById('form-title').value.trim(),
+    date: document.getElementById('form-date').value,
+    category: document.getElementById('form-category').value,
+    excerpt: document.getElementById('form-excerpt').value.trim(),
+    content: document.getElementById('form-content').value.trim(),
+    image: document.getElementById('form-image').value.trim()
+  };
+  if(id) article.id = id;
+
+  if(!article.title||!article.date){ showToast('Tytuł i data są wymagane!'); return; }
+  
+  try {
+    const method = id ? 'PUT' : 'POST';
+    const r = await fetch('api/admin_news.php', {
+      method: method,
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(article)
+    });
+    const res = await r.json();
+    if(res.success){
+      closeModal();
+      loadArticles();
+      showToast('Artykuł zapisany!');
+    } else {
+      showToast(res.message || 'Błąd zapisywania');
+    }
+  } catch(e) {
+    showToast('Błąd połączenia z serwerem');
+  }
+}
+
+async function deleteArticle(id){
+  if(!confirm('Usunąć ten artykuł?')) return;
+  try {
+    const r = await fetch('api/admin_news.php?id='+id, {method: 'DELETE'});
+    const res = await r.json();
+    if(res.success){
+      loadArticles();
+      showToast('Artykuł usunięty.');
+    } else {
+      showToast(res.message || 'Błąd usuwania');
+    }
+  } catch(e){
+    showToast('Błąd połączenia z serwerem');
+  }
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+</script>
+</body>
+</html>
