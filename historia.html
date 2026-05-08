@@ -7,16 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.article-page{padding:120px 0 80px;min-height:100vh}
-.article-back{display:inline-block;color:#4a9eff;font-size:.85rem;margin-bottom:32px}
-.article-back:hover{color:#fff}
-.static-content h1 {font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:28px;line-height:1.2}
-.article-body{font-size:1rem;line-height:1.8;color:#9a978f;max-width:680px}
-.article-body p{margin-bottom:16px}
-.article-body h2 {color: #fff; margin-top: 32px; margin-bottom: 16px; font-size: 1.8rem;}
-.article-body strong {color: #e5e3db;}
-</style>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -31,14 +21,23 @@
     </ul>
   </div>
 </nav>
-<div class="article-page">
-  <div class="wrap" style="max-width:860px">
-    <a href="index.html#o-szkole" class="article-back">← Wróć do sekcji O Szkole</a>
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="wrap page-hero-inner">
+    <a href="index.html#o-szkole" class="back-link">← Wróć do sekcji O Szkole</a>
+    <div class="hero-badge">O Szkole</div>
+    <h1 class="page-title">Historia <span>Szkoły</span></h1>
+    <p class="page-subtitle">Poznaj dzieje Zespołu Szkół Nr 1 w Dzierżoniowie.</p>
+  </div>
+</section>
+
+<section class="article-page section-padding">
+  <div class="wrap article-wrap">
     <div class="static-content">
       <div class="article-hero-img">
         <img src="https://picsum.photos/seed/radiobudahistoria/1200/400" alt="Historia szkoły" style="width:100%;height:100%;object-fit:cover;border-radius:12px;margin-bottom:32px;filter:grayscale(0.2) brightness(0.8)">
       </div>
-      <h1>Historia szkoły</h1>
+
       <div class="article-body">
         <p><strong>„Kochaj ojczyznę, zdobywaj wiedzę i bądź przyjacielem ludzi”</strong></p>
         <p>13 lutego 1946 roku Józef Buczyłko został powołany do zorganizowania Kursu Przysposobienia Radiotechnicznego dla pracowników fabryk w Dzierżoniowie oraz do uruchomienia następnie pierwszej w Polsce średniej szkoły radiotechnicznej. W powstaniu szkoły miał równocześnie wielki udział dyrektor fabryki odbiorników radiowych w Dzierżoniowie, prof. Wilhelm Rotkiewicz, który patronował temu przedsięwzięciu. Już w marcu w budynkach fabryki rozpoczął się 3-miesięczny kurs dla 57 słuchaczy z całej Polski, a 3 października miało miejsce pierwsze uroczyste rozpoczęcie roku szkolnego, które zainaugurowało otwarcie Szkoły Przemysłowej Radiotechnicznej, w budynku przy dzisiejszym pl. Konstytucji 3 Maja. Drugi budynek został przekazany szkole w 1947 roku. W tym samym roku nadana została placówce nazwa Gimnazjum Przemysłowe Radiotechniczne. Pierwsi absolwenci opuścili mury szkolne już w 1949 roku, z możliwością podjęcia pracy lub kontynuowania nauki w utworzonym w Warszawie Liceum Radiotechnicznym. Takie liceum uruchomiono również w 1950 roku w Radiobudzie. Dyrektorem był jeszcze wówczas Józef Buczyłko, zastąpiony następnie przez Jana Turka, a od 1 września 1951 przez Adama Sobiecha.</p>
@@ -51,9 +50,10 @@
         <p>Od roku 2003 szkołą kierował Andrzej Wiczkowski, a w roku 2008 funkcję tę przejął obecny dyrektor, Aleksander Koszela. Ostatnia dekada, dzięki poczynionym inwestycjom, bardzo zmieniła zewnętrzny wizerunek szkoły. Dokonano termomodernizacji budynku przy pl. Konstytucji, wyremontowano liczne pomieszczenia, w tym salę gimnastyczną, wybudowano nowoczesne boisko szkolne wraz z siłownią plenerową. W bibliotece szkolnej stworzono centrum multimediów. Wyposażenie wszystkich pracowni wzbogaciło się o komputery, rzutniki i tablice multimedialne. Współpraca z zakładami przemysłowymi, zwłaszcza z Wałbrzyskiej Specjalnej Strefy Ekonomicznej, stworzyło dla uczniów nowe szanse zdobywania praktyki w wybranych zawodach i przygotowywania się do wymogów rynku pracy. Młodzież korzysta z możliwości, jakie dają programy i projekty unijne, doskonaląc swoje umiejętności zawodowe, kompetencje w zakresie języków obcych, a nade wszystko postawę aktywności i otwartości na świat i ludzi. Aktywnie włącza się w działalność wolontariatu, w różne inicjatywy społeczne, chętnie i z powodzeniem bierze udział w konkursach z różnorodnych dziedzin.</p>
         <p>Szczegółowe informacje o historii naszej Radiobudy odnaleźć można w licznych, znajdujących się między innymi w bibliotece szkolnej pozycjach książkowych, jak na przykład: „XXV lat Technikum Radiotechnicznego i Zasadniczej Szkoły Zawodowej w Dzierżoniowie. 1946-1971”, „Monografia szkoły 1946-1986”, „50 lat. Zespół Szkół Radiotechnicznych im. prof. Wilhelma Rotkiewicza”, „Z dziejów Radiobudy. Jubileusz 60.lecia” i wielu innych.</p>
       </div>
+      </div>
     </div>
   </div>
-</div>
+</section>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap footer-inner">

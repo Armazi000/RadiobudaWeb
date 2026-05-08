@@ -7,42 +7,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-.article-page{padding:120px 0 80px;min-height:100vh}
-.article-back{display:inline-block;color:#4a9eff;font-size:.85rem;margin-bottom:32px}
-.article-back:hover{color:#fff}
-.static-content h1 {font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;color:#fff;margin-bottom:28px;line-height:1.2}
-.article-body{font-size:1rem;line-height:1.8;color:#9a978f;max-width:100%}
-.article-body h2 {color: #fff; margin-top: 32px; margin-bottom: 16px; font-size: 1.8rem;}
-
-.teachers-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-  margin-bottom: 32px;
-}
-.teacher-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  padding: 20px;
-  border-radius: 12px;
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-.teacher-item:hover {
-  background: rgba(255,255,255,0.05);
-  transform: translateY(-2px);
-}
-.teacher-item strong {
-  display: block;
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 4px;
-}
-.teacher-item span {
-  color: #9a978f;
-  font-size: 0.9rem;
-}
-</style>
 </head>
 <body>
 <nav class="nav" id="nav">
@@ -57,72 +21,85 @@
     </ul>
   </div>
 </nav>
-<div class="article-page">
-  <div class="wrap" style="max-width:1000px">
-    <a href="index.html#o-szkole" class="article-back">← Wróć do sekcji O Szkole</a>
-          <h1>Kadra Pedagogiczna</h1>
-          <br>
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="wrap page-hero-inner">
+    <a href="index.html#o-szkole" class="back-link">← Wróć do sekcji O Szkole</a>
+    <div class="hero-badge">Nauczyciele</div>
+    <h1 class="page-title">Kadra <span>Pedagogiczna</span></h1>
+    <p class="page-subtitle">Nauczyciele i pracownicy Zespołu Szkół Nr 1.</p>
+  </div>
+</section>
+
+<section class="article-page section-padding">
+  <div class="wrap article-wrap">
     <div class="static-content">
-      <div class="article-hero-img">
-        <img src="assets/grono-pedagogiczne.jpg" alt="Kadra Pedagogiczna" style="width:100%;height:100%;object-fit:cover;border-radius:12px;margin-bottom:32px;filter:grayscale(0.2) brightness(0.8)">
+      <div class="kadra-photo-wrap">
+        <img src="assets/grono-pedagogiczne.jpg" alt="Kadra Pedagogiczna" class="kadra-photo-img">
+        <div class="kadra-photo-overlay"></div>
+        <div class="kadra-photo-caption">
+          <span class="kadra-caption-badge">Rok szkolny 2025/2026</span>
+          <p>Grono Pedagogiczne · Zespół Szkół Nr 1</p>
+        </div>
       </div>
       <div class="article-body">
         <h2>Nauczyciele w roku szkolnym 2025/2026</h2>
-        <div class="teachers-list">
-          <div class="teacher-item"><strong>Kądziołka Zdzisława</strong><span>Dyrektor Szkoły, nauczyciel chemii</span></div>
-          <div class="teacher-item"><strong>Bugaj Izabela</strong><span>Zastępca dyrektora szkoły, nauczyciel bibliotekarz</span></div>
-          <div class="teacher-item"><strong>Franczak Tadeusz</strong><span>Kierownik kształcenia praktycznego, nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Biel-Seremak Aleksandra</strong><span>Nauczyciel matematyki, informatyki</span></div>
-          <div class="teacher-item"><strong>Chlipała Wioleta</strong><span>Pedagog, pedagog specjalny</span></div>
-          <div class="teacher-item"><strong>Dyda-Falikowska Anna</strong><span>Nauczyciel języka angielskiego, szkolny doradca zawodowy</span></div>
-          <div class="teacher-item"><strong>Giża Grzegorz</strong><span>Nauczyciel wychowania fizycznego</span></div>
-          <div class="teacher-item"><strong>Gniedziejko Anetta</strong><span>Nauczyciel historii</span></div>
-          <div class="teacher-item"><strong>Gromadzik Iwona</strong><span>Nauczyciel języka polskiego, WOSu</span></div>
-          <div class="teacher-item"><strong>Gulka Ewa</strong><span>Nauczyciel języka angielskiego</span></div>
-          <div class="teacher-item"><strong>Koszela Aleksander</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Kowalczyk Agnieszka</strong><span>Nauczyciel języka polskiego, filozofii</span></div>
-          <div class="teacher-item"><strong>Kuś Stanisław</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Kutarba Michał</strong><span>Nauczyciel języka angielskiego, przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Kwiatkowski Piotr</strong><span>Nauczyciel języka niemieckiego</span></div>
-          <div class="teacher-item"><strong>Łękawski Marek</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Matyja Iwona</strong><span>Nauczyciel geografii, podstaw przedsiębiorczości, biznesu i zarządzania</span></div>
-          <div class="teacher-item"><strong>Miś-Sutowicz Agnieszka</strong><span>Nauczyciel biologii, chemii, języka angielskiego</span></div>
-          <div class="teacher-item"><strong>Owczarek Małgorzata</strong><span>Nauczyciel wychowania fizycznego</span></div>
-          <div class="teacher-item"><strong>Sobolewski Lesław</strong><span>Nauczyciel wychowania fizycznego</span></div>
-          <div class="teacher-item"><strong>Stolarczyk Konrad</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Suchy Maciej</strong><span>Nauczyciel języka angielskiego, przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Sutowicz Mariusz</strong><span>Nauczyciel fizyki, przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Szczucka Monika</strong><span>Nauczyciel matematyki</span></div>
-          <div class="teacher-item"><strong>Wirth Marek</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Wojciechowski Tomasz</strong><span>Nauczyciel religii</span></div>
-          <div class="teacher-item"><strong>Zawada Jan</strong><span>Nauczyciel fizyki, przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Zielonka Stanisław</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Borodajko Katarzyna</strong><span>Nauczyciel zajęć rozwijających kreatywność, historii</span></div>
-          <div class="teacher-item"><strong>Cieślak Adam</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Duda Artur</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Duda Krzysztof</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Kapka Adam</strong><span>Nauczyciel historii</span></div>
-          <div class="teacher-item"><strong>Kotowska Genowefa</strong><span>Nauczyciel bibliotekarz</span></div>
-          <div class="teacher-item"><strong>Kozioł-Szeniszewska Elżbieta</strong><span>Nauczyciel chemii, informatyki</span></div>
-          <div class="teacher-item"><strong>Kuczaj Tomasz</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
-          <div class="teacher-item"><strong>Maniecka Jolanta</strong><span>Nauczyciel języka polskiego</span></div>
-          <div class="teacher-item"><strong>Nieroda Ewa</strong><span>Nauczyciel matematyki</span></div>
-          <div class="teacher-item"><strong>Nowaczewska- Cisak Agnieszka</strong><span>Psycholog</span></div>
-          <div class="teacher-item"><strong>Rogowska Katarzyna</strong><span>Nauczyciel języka niemieckiego</span></div>
+        <div class="data-grid">
+          <div class="data-item"><strong>Kądziołka Zdzisława</strong><span>Dyrektor Szkoły, nauczyciel chemii</span></div>
+          <div class="data-item"><strong>Bugaj Izabela</strong><span>Zastępca dyrektora szkoły, nauczyciel bibliotekarz</span></div>
+          <div class="data-item"><strong>Franczak Tadeusz</strong><span>Kierownik kształcenia praktycznego, nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Biel-Seremak Aleksandra</strong><span>Nauczyciel matematyki, informatyki</span></div>
+          <div class="data-item"><strong>Chlipała Wioleta</strong><span>Pedagog, pedagog specjalny</span></div>
+          <div class="data-item"><strong>Dyda-Falikowska Anna</strong><span>Nauczyciel języka angielskiego, szkolny doradca zawodowy</span></div>
+          <div class="data-item"><strong>Giża Grzegorz</strong><span>Nauczyciel wychowania fizycznego</span></div>
+          <div class="data-item"><strong>Gniedziejko Anetta</strong><span>Nauczyciel historii</span></div>
+          <div class="data-item"><strong>Gromadzik Iwona</strong><span>Nauczyciel języka polskiego, WOSu</span></div>
+          <div class="data-item"><strong>Gulka Ewa</strong><span>Nauczyciel języka angielskiego</span></div>
+          <div class="data-item"><strong>Koszela Aleksander</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Kowalczyk Agnieszka</strong><span>Nauczyciel języka polskiego, filozofii</span></div>
+          <div class="data-item"><strong>Kuś Stanisław</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Kutarba Michał</strong><span>Nauczyciel języka angielskiego, przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Kwiatkowski Piotr</strong><span>Nauczyciel języka niemieckiego</span></div>
+          <div class="data-item"><strong>Łękawski Marek</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Matyja Iwona</strong><span>Nauczyciel geografii, podstaw przedsiębiorczości, biznesu i zarządzania</span></div>
+          <div class="data-item"><strong>Miś-Sutowicz Agnieszka</strong><span>Nauczyciel biologii, chemii, języka angielskiego</span></div>
+          <div class="data-item"><strong>Owczarek Małgorzata</strong><span>Nauczyciel wychowania fizycznego</span></div>
+          <div class="data-item"><strong>Sobolewski Lesław</strong><span>Nauczyciel wychowania fizycznego</span></div>
+          <div class="data-item"><strong>Stolarczyk Konrad</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Suchy Maciej</strong><span>Nauczyciel języka angielskiego, przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Sutowicz Mariusz</strong><span>Nauczyciel fizyki, przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Szczucka Monika</strong><span>Nauczyciel matematyki</span></div>
+          <div class="data-item"><strong>Wirth Marek</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Wojciechowski Tomasz</strong><span>Nauczyciel religii</span></div>
+          <div class="data-item"><strong>Zawada Jan</strong><span>Nauczyciel fizyki, przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Zielonka Stanisław</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Borodajko Katarzyna</strong><span>Nauczyciel zajęć rozwijających kreatywność, historii</span></div>
+          <div class="data-item"><strong>Cieślak Adam</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Duda Artur</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Duda Krzysztof</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Kapka Adam</strong><span>Nauczyciel historii</span></div>
+          <div class="data-item"><strong>Kotowska Genowefa</strong><span>Nauczyciel bibliotekarz</span></div>
+          <div class="data-item"><strong>Kozioł-Szeniszewska Elżbieta</strong><span>Nauczyciel chemii, informatyki</span></div>
+          <div class="data-item"><strong>Kuczaj Tomasz</strong><span>Nauczyciel przedmiotów zawodowych</span></div>
+          <div class="data-item"><strong>Maniecka Jolanta</strong><span>Nauczyciel języka polskiego</span></div>
+          <div class="data-item"><strong>Nieroda Ewa</strong><span>Nauczyciel matematyki</span></div>
+          <div class="data-item"><strong>Nowaczewska- Cisak Agnieszka</strong><span>Psycholog</span></div>
+          <div class="data-item"><strong>Rogowska Katarzyna</strong><span>Nauczyciel języka niemieckiego</span></div>
         </div>
         
         <h2>Pracownicy administracji szkoły</h2>
-        <div class="teachers-list">
-          <div class="teacher-item"><strong>Głód Wioletta</strong><span>Główny księgowy</span></div>
-          <div class="teacher-item"><strong>Grudziecka Justyna</strong><span>Kierownik gospodarczy</span></div>
-          <div class="teacher-item"><strong>Kot Anna</strong><span>Samodzielny referent</span></div>
-          <div class="teacher-item"><strong>Kozłowska Agata</strong><span>Referent</span></div>
-          <div class="teacher-item"><strong>Winnik Teresa</strong><span>Pielęgniarka szkolna</span></div>
+        <div class="data-grid">
+          <div class="data-item"><strong>Głód Wioletta</strong><span>Główny księgowy</span></div>
+          <div class="data-item"><strong>Grudziecka Justyna</strong><span>Kierownik gospodarczy</span></div>
+          <div class="data-item"><strong>Kot Anna</strong><span>Samodzielny referent</span></div>
+          <div class="data-item"><strong>Kozłowska Agata</strong><span>Referent</span></div>
+          <div class="data-item"><strong>Winnik Teresa</strong><span>Pielęgniarka szkolna</span></div>
         </div>
+      </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 <!-- FOOTER -->
 <footer class="footer">
   <div class="wrap footer-inner">
