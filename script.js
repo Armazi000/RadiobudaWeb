@@ -1,11 +1,9 @@
-// â”€â”€ NAV â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 const nav = document.getElementById('nav');
 const burger = document.getElementById('burger');
 const navLinks = document.getElementById('nav-links');
 
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
-  // active link
   document.querySelectorAll('.nav-link').forEach(a => {
     const sec = document.querySelector(a.getAttribute('href'));
     if (sec) {
@@ -33,7 +31,6 @@ document.addEventListener('click', e => {
   if (!nav.contains(e.target)) navLinks.classList.remove('open');
 });
 
-// â”€â”€ NEWS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 let allArticles = [];
 let activeCategory = 'Wszystkie';
 
@@ -104,7 +101,6 @@ function formatDate(iso) {
 
 loadNews();
 
-// â”€â”€ ARTICLE PAGE â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 if (window.location.pathname.includes('artykul.html')) {
   const params = new URLSearchParams(window.location.search);
   const id = parseInt(params.get('id'));
@@ -129,7 +125,6 @@ if (window.location.pathname.includes('artykul.html')) {
   });
 }
 
-// ¦¦ THEME TOGGLE ¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦¦
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
 

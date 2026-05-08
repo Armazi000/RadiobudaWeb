@@ -2,14 +2,12 @@
 require 'db.php';
 
 try {
-    // Create users table
     $pdo->exec("CREATE TABLE IF NOT EXISTS users (
         id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) UNIQUE NOT NULL,
         password_hash VARCHAR(255) NOT NULL
     )");
 
-    // Create news table
     $pdo->exec("CREATE TABLE IF NOT EXISTS news (
         id INT AUTO_INCREMENT PRIMARY KEY,
         title VARCHAR(255) NOT NULL,
@@ -20,7 +18,6 @@ try {
         image VARCHAR(255)
     )");
 
-    // Insert default admin user if not exists
     $stmt = $pdo->prepare("SELECT * FROM users WHERE username = 'admin'");
     $stmt->execute();
     if ($stmt->rowCount() === 0) {
